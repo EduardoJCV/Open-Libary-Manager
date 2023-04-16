@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OLMBookModel } from '../../../../shared/models/book.model';
 import { BookService } from '../../../../shared/services/book/book.service';
+import { generateId } from '../../../../shared/helpers/generateId';
 
 @Component({
   selector: 'app-create-book',
@@ -46,8 +47,22 @@ export class CreateBookComponent implements OnInit {
   }
 
   onSubmit() {
-    // Aquí puedes enviar los datos del formulario
-    const book: OLMBookModel = this.bookForm.value;
-    console.log(book);
+    console.log('submit');
+    const book: OLMBookModel = {
+      id: generateId(),
+      title: this.bookForm.value.title,
+      author: this.bookForm.value.author,
+      publisher: this.bookForm.value.publisher,
+      isbn: this.bookForm.value.isbn,
+      description: this.bookForm.value.description,
+      coverImage: this.bookForm.value.coverImage,
+      publishedDate: this.bookForm.value.publishedDate,
+      language: this.bookForm.value.language,
+      category: this.bookForm.value.category,
+      stock: this.bookForm.value.stock,
+      barcode: this.bookForm.value.barcode,
+    };
+    this.bookService.addBook(book);
+    this.handleCancel();
   }
 }

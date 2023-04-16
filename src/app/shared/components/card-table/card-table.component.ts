@@ -6,6 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CardTableComponent {
 
+  @Input() loading?: boolean = true;
   @Input() tableTitle: string;
   @Input() data?: {
     headers: string[];

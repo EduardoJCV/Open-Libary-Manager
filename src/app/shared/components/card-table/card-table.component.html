@@ -14,7 +14,7 @@
   </div>
   <div class="block w-full overflow-x-auto flex-1">
 
-    <table *ngIf="data" class="items-center w-full bg-transparent border-collapse">
+    <table *ngIf="data && !loading" class="items-center w-full bg-transparent border-collapse">
       <thead>
         <tr>
           <th *ngFor="let itemHeader of data.headers" class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
@@ -43,8 +43,7 @@
       </tbody>
     </table>
 
-    <!-- Projects table -->
-    <table *ngIf="!data" class="items-center w-full bg-transparent border-collapse">
+    <table *ngIf="!data && !loading" class="items-center w-full bg-transparent border-collapse">
       <thead>
         <tr>
           <th
@@ -447,6 +446,15 @@
         </tr>
       </tbody>
     </table>
+
+    <div  *ngIf="loading" class="flex flex-col w-full h-full items-center justify-center">
+      <div class="flex flex-row space-x-4">
+        <div class="w-12 h-12 rounded-full animate-spin
+          border-8 border-solid border-red-400 border-t-transparent">
+        </div>
+      </div>
+  </div>
+
 
   </div>
   <div class="flex items-center justify-end py-6 px-4">

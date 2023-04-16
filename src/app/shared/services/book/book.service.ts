@@ -112,6 +112,29 @@ export class BookService {
     });
   }
 
+  public getBookByBarcode(barcode: string): Promise<OLMBookModel> {
+    return new Promise((resolve, reject) => {
+      const transaction = this.database.db.transaction(['books'], 'readonly');
+      const objectStore = transaction.objectStore('books');
+      const index = objectStore.index('barcode');
+      const request = index.get(barcode);
+
+      request.onsuccess = (event) => {
+        const book = request.result;
+        if (book) {
+          resolve(book);
+        } else {
+          reject(new Error(`No book found with barcode ${barcode}`));
+        }
+      };
+
+      request.onerror = (event) => {
+        console.error(`Error retrieving book with barcode ${barcode}:`, event);
+        reject(event);
+      };
+    });
+  }
+
   public getAllBooks(): Promise<OLMBookModel[]> {
     return new Promise((resolve, reject) => {
       const transaction = this.database.db.transaction(['books'], 'readonly');

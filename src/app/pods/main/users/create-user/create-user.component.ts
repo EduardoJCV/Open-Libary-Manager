@@ -69,6 +69,7 @@ export class CreateUserComponent implements OnInit {
       role: this.userForm.value.role
     };
     this.userService.addUser(user);
+    this.handleCancel();
   }
 
 }

@@ -1,4 +1,4 @@
-<form [formGroup]="bookForm" class="flex flex-wrap items-center justify-center bg-white rounded-md shadow-md p-4">
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()" class="flex flex-wrap items-center justify-center bg-white rounded-md shadow-md p-4">
   <div class="w-full mb-4">
     <h2 class="font-semibold text-lg">Create new book</h2>
     <hr>

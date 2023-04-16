@@ -116,6 +116,32 @@ export class UserService {
     });
   }
 
+  public getUserByBarcode(barcode: string): Promise<OLMUserModel> {
+    return new Promise((resolve, reject) => {
+      const transaction = this.database.db.transaction(['users'], 'readonly');
+      const objectStore = transaction.objectStore('users');
+      const index = objectStore.index('barcode');
+      const request = index.get(barcode);
+
+      request.onsuccess = (event) => {
+        //@ts-ignore
+        const user = event.target.result;
+        if (user) {
+          console.log(`User with barcode ${barcode} retrieved from database`);
+          resolve(user);
+        } else {
+          console.log(`User with barcode ${barcode} not found in database`);
+          reject('User not found');
+        }
+      };
+
+      request.onerror = (event) => {
+        console.error(`Error retrieving user with barcode ${barcode} from database:`, event);
+        reject('Error retrieving user');
+      };
+    });
+  }
+
   public getAllUsers(): Promise<OLMUserModel[]> {
     return new Promise((resolve, reject) => {
       const transaction = this.database.db.transaction(['users'], 'readonly');
