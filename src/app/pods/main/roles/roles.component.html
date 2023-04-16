@@ -1,0 +1,29 @@
+<app-create-role *ngIf="newRoleOpen"></app-create-role>
+<div *ngIf="!newRoleOpen" class="flex flex-col space-y-6 w-full h-full">
+  <div class="flex">
+    <div>
+      <h1>Roles</h1>
+    </div>
+    <span class="flex-1"></span>
+    <div class="flex">
+      <input class="rounded-l-md shadow-md  p-2" placeholder="Find roles" type="text">
+      <button class="rounded-r-md shadow-md bg-red-400 hover:bg-red-600 text-white px-4 flex items-center justify-center">
+        <span class="mat-icon">search</span>
+      </button>
+    </div>
+  </div>
+  <div class="w-full h-full flex-1 flex items-center justify-center">
+    <app-card-table
+     class="w-full h-full"
+     tableTitle="Roles list"
+     ></app-card-table>
+  </div>
+  <div class="w-full flex justify-end">
+    <div>
+      <button (click)="newRoleOpen = true" class="bg-red-400 rounded-md shadow-md p-3 text-white flex items-center justify-center space-x-2">
+        <span class="mat-icon">manage_accounts</span>
+        <span>New role</span>
+      </button>
+    </div>
+  </div>
+</div>

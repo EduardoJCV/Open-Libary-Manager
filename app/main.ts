@@ -1,4 +1,4 @@
-import {app, BrowserWindow, screen} from 'electron';
+import {app, BrowserWindow, screen, ipcMain} from 'electron';
 import * as path from 'path';
 import * as fs from 'fs';
 
@@ -16,6 +16,7 @@ function createWindow(): BrowserWindow {
     y: 0,
     width: size.width,
     height: size.height,
+    frame: false, // Desactivar la barra superior de la ventana
     webPreferences: {
       nodeIntegration: true,
       allowRunningInsecureContent: (serve),
@@ -81,3 +82,21 @@ try {
   // Catch Error
   // throw e;
 }
+
+ipcMain.on('close-app', (event, arg) => {
+  app.quit();
+});
+ipcMain.on('minimize-window', () => {
+  win.minimize();
+});
+ipcMain.on('get-window-state', (event) => {
+  const isMaximized = win.isMaximized();
+  event.returnValue = isMaximized;
+});
+ipcMain.on('toggle-window-state', (event, isMaximized) => {
+  if (isMaximized) {
+    win.restore();
+  } else {
+    win.maximize();
+  }
+});

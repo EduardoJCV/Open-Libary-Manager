@@ -1,27 +1,28 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { PageNotFoundComponent } from './shared/components';
-
-import { HomeRoutingModule } from './home/home-routing.module';
-import { DetailRoutingModule } from './detail/detail-routing.module';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { MainComponent } from './pods/main/main.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    component: MainComponent,
+    loadChildren: () => import('./pods/main/main.module').then(m => m.MainModule)
   },
   {
     path: '**',
-    component: PageNotFoundComponent
+    pathMatch: 'full',
+    redirectTo: ''
   }
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, {}),
-    HomeRoutingModule,
-    DetailRoutingModule
+    RouterModule.forRoot(
+      routes,
+      {
+        preloadingStrategy: PreloadAllModules
+      }
+    )
   ],
   exports: [RouterModule]
 })

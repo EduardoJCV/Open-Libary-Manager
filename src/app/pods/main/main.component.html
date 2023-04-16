@@ -1,0 +1,72 @@
+<div class="h-screen w-screen flex flex-col">
+  <header class="h-[48px] bg-red-400 flex justify-center items-center text-white px-4 shadow-md">
+    <div class="flex-1">
+      <button (click)="closeApp()" class="cursor-pointer hover:text-black">
+        <span class="mat-icon text-2xl">settings</span>
+      </button>
+    </div>
+    <div class="flex-1 flex space-x-4 items-center justify-center">
+      <h1>Open Library Manager</h1>
+    </div>
+    <div class="flex-1 flex justify-end space-x-2">
+      <button (click)="closeApp()" class="cursor-pointer hover:text-black w-fit flex items-center justify-center">
+        <span class="mat-icon text-2xl">minimize</span>
+      </button>
+      <button (click)="closeApp()" class="cursor-pointer hover:text-black w-fit flex items-center justify-center">
+        <span class="mat-icon text-2xl">remove</span>
+      </button>
+      <button (click)="closeApp()" class="cursor-pointer hover:text-black w-fit flex items-center justify-center">
+        <span class="mat-icon text-2xl">closed</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="flex flex-1 !h-[calc(100vh - 48px)]">
+    <aside class="w-[260px] h-full shadow-2xl p-4 flex flex-col">
+      <ul class="flex flex-col space-y-4 border-separate border-spacing-2">
+        <hr>
+        <li class="flex text-lg font-medium w-full cursor-pointer hover:text-red-400">
+          <a class="h-full w-full flex-1" [routerLink]="['/home']" routerLinkActive="router-link-active" >Home</a>
+        </li>
+        <hr>
+        <li class="flex text-lg font-medium w-full cursor-pointer hover:text-red-400">
+          <a class="h-full w-full flex-1" [routerLink]="['/users']" routerLinkActive="router-link-active" >Users</a>
+        </li>
+        <hr>
+        <li class="flex text-lg font-medium w-full cursor-pointer hover:text-red-400">
+          <a class="h-full w-full flex-1" [routerLink]="['/books']" routerLinkActive="router-link-active" >Books</a>
+        </li>
+        <hr>
+        <li class="flex text-lg font-medium w-full cursor-pointer hover:text-red-400">
+          <a class="h-full w-full flex-1" [routerLink]="['/roles']" routerLinkActive="router-link-active" >Roles</a>
+        </li>
+        <hr>
+        <li class="flex text-lg font-medium w-full cursor-pointer hover:text-red-400">
+          <a class="h-full w-full flex-1" [routerLink]="['/loans']" routerLinkActive="router-link-active" >Loans</a>
+        </li>
+        <hr>
+      </ul>
+      <span class="flex-1"></span>
+      <ul class="flex flex-col space-y-4 border-separate border-spacing-2">
+        <li class="text-lg font-medium">
+          <p class="">Language</p>
+        </li>
+        <li class="text-lg font-medium">
+          <p class="">DarkMode</p>
+        </li>
+        <li class="text-lg font-medium">
+          <p class="">Version</p>
+        </li>
+      </ul>
+    </aside>
+    <main class="flex flex-col flex-1 bg-slate-50 w-full justify-center items-center">
+      <section class="flex-1 p-6 max-w-[1300px] !w-[inherit]">
+        <router-outlet />
+      </section>
+      <footer class="h-[8vh]">
+        <p>footer</p>
+      </footer>
+    </main>
+  </div>
+
+</div>

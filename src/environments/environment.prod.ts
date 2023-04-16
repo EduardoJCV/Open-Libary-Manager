@@ -1,4 +1,8 @@
 export const APP_CONFIG = {
   production: true,
-  environment: 'PROD'
+  environment: 'PROD',
+  database: {
+    name: 'OLM_DB',
+    version: 1
+  }
 };

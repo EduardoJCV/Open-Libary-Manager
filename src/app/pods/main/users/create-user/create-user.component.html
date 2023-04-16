@@ -1,0 +1,151 @@
+<form class="flex flex-wrap items-center justify-center bg-white rounded-md shadow-md p-4" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div class="w-full mb-4">
+    <h2 class="font-semibold text-lg">Create new user</h2>
+    <hr>
+  </div>
+  <div class="flex flex-wrap max-w-[40%] w-[40%] mx-4 mb-4">
+    <div class="w-full px-3">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="first-name">
+        First Name *
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" formControlName="firstName" id="first-name" type="text" placeholder="John">
+      <div *ngIf="userForm.controls['firstName'].invalid && (userForm.controls['firstName'].dirty || userForm.controls['firstName'].touched)" class="text-red-500 text-xs italic">
+        Please enter a valid first name.
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-wrap max-w-[40%] w-[40%] mx-4 mb-4">
+    <div class="w-full px-3">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="last-name">
+        Last Name *
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" formControlName="lastName" id="last-name" type="text" placeholder="Doe">
+      <div *ngIf="userForm.controls['lastName'].invalid && (userForm.controls['lastName'].dirty || userForm.controls['lastName'].touched)" class="text-red-500 text-xs italic">
+        Please enter a valid last name.
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-wrap max-w-[40%] w-[40%] mx-4 mb-4">
+    <div class="w-full px-3">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="email">
+        Email *
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" formControlName="email" id="email" type="email" placeholder="johndoe@example.com">
+      <div *ngIf="userForm.controls['email'].invalid && (userForm.controls['email'].dirty || userForm.controls['email'].touched)" class="text-red-500 text-xs italic">
+        Please enter a valid email.
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-wrap max-w-[40%] w-[40%] mx-4 mb-4">
+    <div class="w-full px-3">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="phone">
+        Phone *
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" formControlName="phone" id="phone" type="text" placeholder="Enter phone number">
+      <div *ngIf="userForm.controls['phone'].invalid && (userForm.controls['phone'].dirty || userForm.controls['phone'].touched)" class="text-red-500 text-xs italic">
+        Please enter a valid phone number.
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-wrap max-w-[40%] w-[40%] mx-4 mb-4">
+    <div class="w-full px-3">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="address">
+        Address
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" formControlName="address" id="address" type="text" placeholder="Enter address">
+      <div *ngIf="userForm.controls['address'].invalid && (userForm.controls['address'].dirty || userForm.controls['address'].touched)" class="text-red-500 text-xs italic">
+        Please enter a valid address.
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-wrap max-w-[40%] w-[40%] mx-4 mb-4">
+    <div class="w-full px-3">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="city">
+        City
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" formControlName="city" id="city" type="text" placeholder="Enter city">
+      <div *ngIf="userForm.controls['city'].invalid && (userForm.controls['city'].dirty || userForm.controls['city'].touched)" class="text-red-500 text-xs italic">
+        Please enter a valid city.
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-wrap max-w-[40%] w-[40%] mx-4 mb-4">
+    <div class="w-full px-3">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="state">
+        State
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" formControlName="state" id="state" type="text" placeholder="Enter state">
+      <div *ngIf="userForm.controls['state'].invalid && (userForm.controls['state'].dirty || userForm.controls['state'].touched)" class="text-red-500 text-xs italic">
+        Please enter a valid state.
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-wrap max-w-[40%] w-[40%] mx-4 mb-4">
+    <div class="w-full px-3">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="zipCode">
+        Zip Code
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" formControlName="zipCode" id="zipCode" type="text" placeholder="12345">
+      <div *ngIf="userForm.controls['zipCode'].invalid && (userForm.controls['zipCode'].dirty || userForm.controls['zipCode'].touched)" class="text-red-500 text-xs italic">
+        Please enter a valid zip code.
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-wrap max-w-[40%] w-[40%] mx-4 mb-4">
+    <div class="w-full px-3">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="username">
+        Username
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" formControlName="username" id="username" type="text" placeholder="Username">
+      <div *ngIf="userForm.controls['username'].invalid && (userForm.controls['username'].dirty || userForm.controls['username'].touched)" class="text-red-500 text-xs italic">
+        Please enter a valid username.
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-wrap max-w-[40%] w-[40%] mx-4 mb-4">
+    <div class="w-full px-3">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="password">
+        Password
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" formControlName="password" id="password" type="password" placeholder="********">
+      <div *ngIf="userForm.controls['password'].invalid && (userForm.controls['password'].dirty || userForm.controls['password'].touched)" class="text-red-500 text-xs italic">
+        Please enter a valid password.
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-wrap max-w-[40%] w-[40%] mx-4 mb-4">
+    <div class="w-full px-3">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="barcode">
+        Barcode *
+      </label>
+      <div class="flex">
+        <input class="flex-1 appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" formControlName="barcode" id="barcode" type="text" placeholder="Barcode">
+        <button type="button" (click)="randomBarcode()" class="bg-red-400 rounded-r-md py-3 px-4 mb-3 flex items-center justify-center text-white hover:bg-red-500 hover:text-white">
+          <span class="mat-icon">autorenew</span>
+        </button>
+      </div>
+      <div *ngIf="userForm.controls['barcode'].invalid && (userForm.controls['barcode'].dirty || userForm.controls['barcode'].touched)" class="text-red-500 text-xs italic">
+        Please enter a valid barcode.
+      </div>
+    </div>
+  </div>
+  <!-- <div class="flex flex-wrap max-w-[40%] w-[40%] mx-4 mb-4">
+    <div class="w-full px-3">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="role">
+        Role *
+      </label>
+      <select class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" formControlName="role" id="role">
+        <option value="" disabled selected>Select a role</option>
+        <option value="admin">Admin</option>
+        <option value="user">User</option>
+      </select>
+      <div *ngIf="userForm.controls['role'].invalid && (userForm.controls['role'].dirty || userForm.controls['role'].touched)" class="text-red-500 text-xs italic">
+        Please select a role.
+      </div>
+    </div>
+  </div> -->
+  <div class="w-full flex space-x-4 items-center justify-end z-30">
+    <button type="button" (click)="handleCancel()" class="border-2 border-red-400 text-red-400 p-3 rounded-md hover:bg-red-500 hover:text-white">Cancel</button>
+    <button [disabled]="!userForm.valid" type="submit" class="bg-red-400 text-white p-3 rounded-md shadow-md hover:bg-red-500 hover:text-white">Create</button>
+  </div>
+</form>

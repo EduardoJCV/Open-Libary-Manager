@@ -1,0 +1,150 @@
+<form class="flex flex-col items-center justify-center bg-white rounded-md shadow-md p-4" [formGroup]="roleForm" (submit)="onSubmit()">
+  <div class="w-full mb-4">
+    <h2 class="font-semibold text-lg">Create new rol</h2>
+    <hr>
+  </div>
+  <div class="flex flex-wrap mb-6 w-full p-2">
+    <div class="w-full">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="roleTitle">
+        Role Title
+      </label>
+      <input
+        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+        formControlName="roleTitle"
+        id="roleTitle"
+        type="text"
+        placeholder="Admin, Moderator, Student, Proffessor, ..."
+      >
+      <div *ngIf="roleForm.controls['roleTitle'].invalid && (roleForm.controls['roleTitle'].dirty || roleForm.controls['roleTitle'].touched)" class="text-red-500 text-xs italic">
+        Please enter a valid role title.
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-6 w-full p-2">
+    <p class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+      Permissions
+    </p>
+    <div class="flex flex-wrap">
+      <div class="w-full md:w-1/3">
+        <div class="mb-4 flex space-x-2">
+          <input class="form-checkbox h-5 w-5 text-white transition duration-150 ease-in-out accent-red-400" type="checkbox" formControlName="addBooks">
+          <span class="text-sm">
+            Add Books
+          </span>
+        </div>
+        <div class="mb-4 flex space-x-2">
+          <input class="form-checkbox h-5 w-5 text-white transition duration-150 ease-in-out accent-red-400" type="checkbox" formControlName="removeBooks">
+          <span class="text-sm">
+            Remove Books
+          </span>
+        </div>
+        <div class="mb-4 flex space-x-2">
+          <input class="form-checkbox h-5 w-5 text-white transition duration-150 ease-in-out accent-red-400" type="checkbox" formControlName="editBooks">
+          <span class="text-sm">
+            Edit Books
+          </span>
+        </div>
+        <div class="mb-4 flex space-x-2">
+          <input class="form-checkbox h-5 w-5 text-white transition duration-150 ease-in-out accent-red-400" type="checkbox" formControlName="borrowBooks">
+          <span class="text-sm">
+            Borrow Books
+          </span>
+        </div>
+        <div class="mb-4 flex space-x-2">
+          <input class="form-checkbox h-5 w-5 text-white transition duration-150 ease-in-out accent-red-400" type="checkbox" formControlName="returnBooks">
+          <span class="text-sm">
+            Return Books
+          </span>
+        </div>
+        <div class="mb-4 flex space-x-2">
+          <input class="form-checkbox h-5 w-5 text-white transition duration-150 ease-in-out accent-red-400" type="checkbox" formControlName="approveBookRequests">
+          <span class="text-sm">
+            Approve Book Requests
+          </span>
+        </div>
+        <div class="mb-4 flex space-x-2">
+          <input class="form-checkbox h-5 w-5 text-white transition duration-150 ease-in-out accent-red-400" type="checkbox" formControlName="manageLibraryInventory">
+          <span class="text-sm">
+            Manage Library Inventory
+          </span>
+        </div>
+      </div>
+      <div class="w-full md:w-1/3">
+        <div class="mb-4 flex space-x-2">
+          <input class="form-checkbox h-5 w-5 text-white transition duration-150 ease-in-out accent-red-400" type="checkbox" formControlName="addUsers">
+          <span class="text-sm">
+            Add Users
+          </span>
+        </div>
+        <div class="mb-4 flex space-x-2">
+          <input class="form-checkbox h-5 w-5 text-white transition duration-150 ease-in-out accent-red-400" type="checkbox" formControlName="removeUser">
+          <span class="text-sm">
+            Remove Users
+          </span>
+        </div>
+        <div class="mb-4 flex space-x-2">
+          <input type="checkbox" formControlName="addUsers" id="addUsers" class="form-checkbox h-5 w-5 text-white transition duration-150 ease-in-out accent-red-400">
+          <label for="addUsers" class="ml-2 block text-sm leading-5 text-gray-900">
+            Add Users
+          </label>
+        </div>
+        <div class="mb-4 flex space-x-2">
+          <input type="checkbox" formControlName="removeUser" id="removeUser" class="form-checkbox h-5 w-5 text-white transition duration-150 ease-in-out accent-red-400">
+          <label for="removeUser" class="ml-2 block text-sm leading-5 text-gray-900">
+            Remove Users
+          </label>
+        </div>
+        <div class="mb-4 flex space-x-2">
+          <input type="checkbox" formControlName="editUser" id="editUser" class="form-checkbox h-5 w-5 text-white transition duration-150 ease-in-out accent-red-400">
+          <label for="editUser" class="ml-2 block text-sm leading-5 text-gray-900">
+            Edit Users
+          </label>
+        </div>
+        <div class="mb-4 flex space-x-2">
+          <input type="checkbox" formControlName="viewUserRecords" id="viewUserRecords" class="form-checkbox h-5 w-5 text-white transition duration-150 ease-in-out accent-red-400">
+          <label for="viewUserRecords" class="ml-2 block text-sm leading-5 text-gray-900">
+            View User Records
+          </label>
+        </div>
+        <div class="mb-4 flex space-x-2">
+          <input type="checkbox" formControlName="manageUserRoles" id="manageUserRoles" class="form-checkbox h-5 w-5 text-white transition duration-150 ease-in-out accent-red-400">
+          <label for="manageUserRoles" class="ml-2 block text-sm leading-5 text-gray-900">
+            Manage User Roles
+          </label>
+        </div>
+        <div class="mb-4 flex space-x-2">
+          <input type="checkbox" formControlName="manageUserAccounts" id="manageUserAccounts" class="form-checkbox h-5 w-5 text-white transition duration-150 ease-in-out accent-red-400">
+          <label for="manageUserAccounts" class="ml-2 block text-sm leading-5 text-gray-900">
+            Manage User Accounts
+          </label>
+        </div>
+      </div>
+      <div class="w-full md:w-1/3">
+        <div class="mb-4 flex space-x-2">
+          <label class="inline-flex items-center">
+            <input type="checkbox" class="form-checkbox h-5 w-5 text-white transition duration-150 ease-in-out accent-red-400" formControlName="permissions.manageLibrarySettings">
+            <span class="ml-2">Manage Library Settings</span>
+          </label>
+        </div>
+        <div class="mb-4 flex space-x-2">
+          <label class="inline-flex items-center">
+            <input type="checkbox" class="form-checkbox h-5 w-5 text-white transition duration-150 ease-in-out accent-red-400" formControlName="permissions.generateReports">
+            <span class="ml-2">Generate Reports</span>
+          </label>
+        </div>
+        <div class="mb-4 flex space-x-2">
+          <label class="inline-flex items-center">
+            <input type="checkbox" class="form-checkbox h-5 w-5 text-white transition duration-150 ease-in-out accent-red-400" formControlName="permissions.owner">
+            <span class="ml-2">Owner</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-full flex space-x-4 items-center justify-end">
+    <button class="border-2 border-red-400 text-red-400 p-3 rounded-md">Cancel</button>
+    <button class="bg-red-400 text-white p-3 rounded-md shadow-md">Create</button>
+  </div>
+</form>
